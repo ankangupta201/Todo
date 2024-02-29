@@ -4,7 +4,7 @@ module.exports.lambda = async (event, context) => {
       statusCode: 200,
       body: JSON.stringify(
         {
-          message: process.env.key,
+          message: process.env.database_url,
         }
       ),
     };

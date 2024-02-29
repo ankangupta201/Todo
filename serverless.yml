@@ -10,7 +10,7 @@ provider:
   region: ap-south-1
 
   environment:
-    key : knknd  
+    database_url: mongodb+srv://ankangupta201:NPlcM4OmMqK0DETf@e-state.kjllmj8.mongodb.net/?retryWrites=true&w=majority&appName=e-state
 
 plugins:
   - serverless-offline
@@ -19,6 +19,20 @@ functions:
   initial:
     handler: handler.lambda
     events:
-      - http: 
+      - http:
           path: /hello
           method: get
+
+  insertBlog:
+    handler: controllers/blog.lambda
+    events:
+      - http:
+          path: /add
+          method: post
+
+  insertUser:
+    handler: controllers/register.lambda
+    events:
+      - http:
+          path: /user-add
+          method: post
